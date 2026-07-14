@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Wajiha Rizwan | Portfolio</title>
+<title>Temperature Converter</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -19,196 +13,51 @@
 
 <body>
 
-<header>
+<div class="container">
 
-<nav>
+<h1>🌡 Temperature Converter</h1>
 
-<h2 class="logo">Portfolio</h2>
+<div class="converter">
 
-<ul>
+<label>Enter Temperature</label>
 
-<li><a href="#home">Home</a></li>
+<input type="number" id="temperature" placeholder="Enter value">
 
-<li><a href="#about">About</a></li>
+<label>Select Unit</label>
 
-<li><a href="#skills">Skills</a></li>
+<select id="unit">
 
-<li><a href="#projects">Projects</a></li>
+<option value="celsius">Celsius</option>
 
-<li><a href="#contact">Contact</a></li>
+<option value="fahrenheit">Fahrenheit</option>
 
-</ul>
+<option value="kelvin">Kelvin</option>
 
-</nav>
+</select>
 
-</header>
+<button onclick="convertTemperature()">
+Convert
+</button>
 
-<!-- Hero Section -->
+<div class="result">
 
-<section id="home" class="hero">
+<h3>Converted Values</h3>
 
-<div class="hero-text">
+<p id="celsius">Celsius : --</p>
 
-<h1>Hi, I'm <span>Wajiha Rizwan</span></h1>
+<p id="fahrenheit">Fahrenheit : --</p>
 
-<h3>Frontend Developer</h3>
+<p id="kelvin">Kelvin : --</p>
 
-<p>
-
-I build responsive and modern websites using
-
-HTML, CSS, JavaScript and React.js.
-
-</p>
-
-<a href="#contact" class="btn">Hire Me</a>
-
-</div>
-
-<div class="hero-image">
-
-<img src="OIP.webp" alt="Profile">
-
-</div>
-
-</section>
-
-<!-- About -->
-
-<section id="about">
-
-<h2>About Me</h2>
-
-<p>
-
-I am a BS Software Engineering student at Sindh Agriculture University Tandojam.
-
-I enjoy creating beautiful and responsive websites and continuously improving my web development skills.
-
-</p>
-
-</section>
-
-<!-- Skills -->
-
-<section id="skills">
-
-<h2>My Skills</h2>
-
-<div class="skills-container">
-
-<div class="skill">HTML5</div>
-
-<div class="skill">CSS3</div>
-
-<div class="skill">JavaScript</div>
-
-<div class="skill">Bootstrap</div>
-
-<div class="skill">React.js</div>
-
-<div class="skill">Git & GitHub</div>
-
-</div>
-
-</section>
-
-<!-- Projects -->
-
-<section id="projects">
-
-<h2>Projects</h2>
-
-<div class="project-container">
-
-<div class="project-card">
-
-<h3>Landing Page</h3>
-
-<p>
-
-Responsive software company landing page using HTML & CSS.
-
-</p>
-
-<a href="#">GitHub Link</a>
-
-</div>
-
-<div class="project-card">
-
-<h3>Temperature Converter</h3>
-
-<p>
-
-Temperature conversion website using HTML, CSS and JavaScript.
-
-</p>
-
-<a href="#">GitHub Link</a>
+<p id="error"></p>
 
 </div>
 
 </div>
 
-</section>
-
-<!-- Contact -->
-
-<section id="contact">
-
-<h2>Contact Me</h2>
-
-<div class="contact-container">
-
-<div class="contact-info">
-
-<h3>Let's Work Together</h3>
-
-<p>📍 Hyderabad, Sindh, Pakistan</p>
-
-<p>📧 wajiha@example.com</p>
-
-<p>📞 +92 300 1234567</p>
-
-<p>💻 github.com/yourusername</p>
-
 </div>
-
-<div class="contact-form">
-
-<form>
-
-<input type="text" placeholder="Your Name" required>
-
-<input type="email" placeholder="Your Email" required>
-
-<input type="text" placeholder="Subject">
-
-<textarea rows="6" placeholder="Your Message"></textarea>
-
-<button type="submit">Send Message</button>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-
-© 2026 Wajiha Rizwan | All Rights Reserved
-
-</p>
-
-</footer>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>

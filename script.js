@@ -1,84 +1,92 @@
-// Smooth Scroll for Navigation Links
+function convertTemperature() {
 
-document.querySelectorAll('nav a').forEach(link => {
+let temp = parseFloat(document.getElementById("temperature").value);
+let unit = document.getElementById("unit").value;
 
-link.addEventListener('click', function(e){
+let celsius, fahrenheit, kelvin;
 
-e.preventDefault();
+document.getElementById("error").innerHTML = "";
 
-const target = document.querySelector(this.getAttribute('href'));
+// Empty Input
+if (isNaN(temp)) {
 
-target.scrollIntoView({
+document.getElementById("error").innerHTML =
+"Please enter a valid number.";
 
-behavior:'smooth'
+document.getElementById("celsius").innerHTML = "Celsius : --";
+document.getElementById("fahrenheit").innerHTML = "Fahrenheit : --";
+document.getElementById("kelvin").innerHTML = "Kelvin : --";
 
-});
-
-});
-
-});
-
-
-// Active Navigation on Scroll
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav ul li a");
-
-window.addEventListener("scroll",()=>{
-
-let current="";
-
-sections.forEach(section=>{
-
-const sectionTop=section.offsetTop-120;
-const sectionHeight=section.clientHeight;
-
-if(pageYOffset>=sectionTop){
-
-current=section.getAttribute("id");
+return;
 
 }
 
-});
+// Celsius
 
-navLinks.forEach(link=>{
+if (unit === "celsius") {
 
-link.classList.remove("active");
+if (temp < -273.15) {
 
-if(link.getAttribute("href")==="#"+current){
+document.getElementById("error").innerHTML =
+"Temperature cannot be below Absolute Zero (-273.15°C).";
 
-link.classList.add("active");
-
-}
-
-});
-
-});
-
-
-// Simple Fade Animation
-
-const observer = new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity="1";
-entry.target.style.transform="translateY(0)";
+return;
 
 }
 
-});
+celsius = temp;
+fahrenheit = (temp * 9/5) + 32;
+kelvin = temp + 273.15;
 
-});
+}
 
-document.querySelectorAll("section").forEach(section=>{
+// Fahrenheit
 
-section.style.opacity="0";
-section.style.transform="translateY(40px)";
-section.style.transition="0.8s";
+else if (unit === "fahrenheit") {
 
-observer.observe(section);
+if (temp < -459.67) {
 
-});
+document.getElementById("error").innerHTML =
+"Temperature cannot be below Absolute Zero (-459.67°F).";
+
+return;
+
+}
+
+fahrenheit = temp;
+celsius = (temp - 32) * 5/9;
+kelvin = celsius + 273.15;
+
+}
+
+// Kelvin
+
+else {
+
+if (temp < 0) {
+
+document.getElementById("error").innerHTML =
+"Temperature cannot be below Absolute Zero (0 K).";
+
+return;
+
+}
+
+kelvin = temp;
+celsius = temp - 273.15;
+fahrenheit = (celsius * 9/5) + 32;
+
+}
+
+// Display Results
+
+document.getElementById("celsius").innerHTML =
+"Celsius : " + celsius.toFixed(2) + " °C";
+
+document.getElementById("fahrenheit").innerHTML =
+"Fahrenheit : " + fahrenheit.toFixed(2) + " °F";
+
+document.getElementById("kelvin").innerHTML =
+"Kelvin : " + kelvin.toFixed(2) + " K";
+
+}
